@@ -73,7 +73,7 @@ após a experiência de compra.
 │   │   ├── train_model.py
 │   │   ├── evaluate_model.py
 │   │   └── model_factory.py
-│   └── utils/
+│   
 │
 ├── main.py               # Pipeline principal
 ├── requirements.txt
