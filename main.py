@@ -8,6 +8,8 @@ def main():
     dataset = load_data()
 
     df = create_features(dataset)
+    print(df[df['nps_category'] == 'Detractor']['order_id'].nunique())
+
 
     X = df[[
     "customer_age",
