@@ -62,12 +62,12 @@ após a experiência de compra.
 
 ```
 .
-├── data/
-│   ├── raw/              # Dados brutos
-│   └── processed/        # Dados tratados
+├── Tech Challegente Grupo 47 # Apresentação do projeto
+|
+├── Tech Challegente Fase 1 1IAST.ipynb #Exploração da base de dados
 │
 ├── src/
-│   ├── data/             # Leitura e tratamento de dados
+│   ├── data/             # Leitura e tratamento de dados + Dados brutos
 │   ├── features/         # Feature engineering
 │   ├── models/           # Treinamento e avaliação
 │   │   ├── train_model.py
