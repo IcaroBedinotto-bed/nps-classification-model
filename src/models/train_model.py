@@ -1,21 +1,20 @@
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
+from src.models.model_factory import get_model
 
-def train_model(X, y):
+def train_model(X, y, model_name="logistic"):
 
     X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size = 0.3, random_state=42
     )
 
-    scaler = StandardScaler()
+    if model_name=="logistic":
+        scaler = StandardScaler()
+        X_train = scaler.fit_transform(X_train)
+        X_test = scaler.transform(X_test)
 
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
-
-    model = LogisticRegression(class_weight="balanced")
-
-    #Treinar o modelo
+    model = get_model(model_name)
     model.fit(X_train, y_train)
 
     return model, X_test, y_test

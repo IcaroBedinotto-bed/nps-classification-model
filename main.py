@@ -27,7 +27,7 @@ def main():
 
     y = df["nps_category"]
 
-    model, X_test, y_test = train_model(X, y)
+    model, X_test, y_test = train_model(X, y, model_name = "random_forest")
 
     evaluate_model(model, X_test, y_test)
 
