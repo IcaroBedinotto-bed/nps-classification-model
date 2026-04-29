@@ -8,8 +8,6 @@ def main():
     dataset = load_data()
 
     df = create_features(dataset)
-    print(df[df['nps_category'] == 'Detractor']['order_id'].nunique())
-
 
     X = df[[
     "customer_age",
@@ -25,11 +23,11 @@ def main():
     "customer_service_contacts",
     "resolution_time_days",
     "complaints_count",
-    "csat_internal_score"]]
+    "csat_internal_score"]] #Escolhas de variáveis que acontecem antes da pesquisa de NPS, permitindo agir de maneira proativa
 
-    y = df["nps_category"]
+    y = df["nps_category"] 
 
-    model, X_test, y_test = train_model(X, y, model_name = "random_forest")
+    model, X_test, y_test = train_model(X, y, model_name = "random_forest") #Dado que existe um desbalanceamento dos dados para detratores, faz sentido optar pelo Random Forest
 
     evaluate_model(model, X_test, y_test)
 

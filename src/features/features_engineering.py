@@ -2,7 +2,7 @@ def create_features(dataset):
     df = dataset.copy(deep=True)
     
     
-    df["nps_category"] = df["nps_score"].apply(
+    df["nps_category"] = df["nps_score"].apply( #Classificação dos clientes seguindo a metodologia NPS
         lambda x: "Promoter" if x >= 9 else
                   "Passive" if x >= 7 else
                   "Detractor"
