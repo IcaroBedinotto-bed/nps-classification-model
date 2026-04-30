@@ -27,7 +27,7 @@ def main():
 
     y = df["nps_category"] 
 
-    model, X_test, y_test = train_model(X, y, model_name = "logistic") #Dado que existe um desbalanceamento dos dados para detratores, faz sentido optar pelo Random Forest
+    model, X_test, y_test = train_model(X, y, model_name = "random_forest") #Dado que existe um desbalanceamento dos dados para detratores, faz sentido optar pelo Random Forest
 
     evaluate_model(model, X_test, y_test)
 
