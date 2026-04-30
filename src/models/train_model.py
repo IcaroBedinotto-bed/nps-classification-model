@@ -6,7 +6,7 @@ from src.models.model_factory import get_model
 def train_model(X, y, model_name="logistic"):
 
     X_train, X_test, y_train, y_test = train_test_split( 
-    X, y, test_size = 0.3, random_state=42
+    X, y, test_size = 0.2, random_state=42
     )
 
     if model_name=="logistic": #Caso opte trabalhar com regressão logística precisamos normalizar os dados
