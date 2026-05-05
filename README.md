@@ -1,6 +1,6 @@
 # 📊 NPS Classification Model
 
-Projeto de Machine Learning para classificação de clientes em **Promoters, Passives e Detractors**, com foco em entender e permitir que os times envolvidos na operação e CS atuem de maneira proativa para reduzir o volume de detratores
+Projeto de Machine Learning para classificação de clientes em **Detratores e Não-detratores**, com foco em entender e permitir que os times envolvidos na operação e CS atuem de maneira proativa para reduzir o volume de detratores e com isso aumente a receita da companhia
 
 ---
 
@@ -26,7 +26,7 @@ Verificou-se que o principal ofensor de experiência é o atraso médio do pedid
 
 Base de dados com 2.500 registros, sendo dados de identificação do usuário e do pedido, bem como informações do pedido, dados operacionas e NPS e CSAT que definem a satisfação.
 
-Base de dados pode ser acessada em src > data > desafio_nps.csv
+Base de dados pode ser acessada em data > desafio_nps.csv
 
 Abaixo está o dicionário de dados
 
@@ -62,17 +62,16 @@ após a experiência de compra.
 
 ```
 .
-├── Tech Challegente Grupo 47 # Apresentação do projeto
 |
-├── Tech Challegente Fase 1 1IAST.ipynb #Exploração da base de dados
+├── data  #Base de dados usada na análise e no treinamento do modelo
 │
 ├── src/
-│   ├── data/             # Leitura e tratamento de dados + Dados brutos
+│   ├── data/             # Leitura e tratamento de dados
 │   ├── features/         # Feature engineering
 │   ├── models/           # Treinamento e avaliação
-│   │   ├── train_model.py
-│   │   ├── evaluate_model.py
-│   │   └── model_factory.py
+│   │   ├── train_model.py    # Treinamento do modelo
+│   │   ├── evaluate_model.py    # Avaliação do resultado obtido no moldeo
+│   │   └── model_factory.py   # Modelos disponíveis para teste, para facilitar a troca entre Regressão Logística e Random Forest
 │   
 │
 ├── main.py               # Pipeline principal
@@ -85,9 +84,6 @@ após a experiência de compra.
 ## ⚙️ Tecnologias Utilizadas
 
 * Python
-* pandas
-* scikit-learn
-* imbalanced-learn (SMOTE)
 
 ---
 
@@ -114,7 +110,7 @@ após a experiência de compra.
 
 1. **Leitura dos dados**
 2. **Feature engineering**: Classificação dos pedidos seguindo a metodologia do NPS
-3. **Separação entre treino e teste**: 30% para treinamento e 70% para teste
+3. **Separação entre treino e teste**: 20% para treinamento e 80% para teste
 4. **Tratamento de desbalanceamento**: Forçamos o balanceamento dos dados e aplicamos o Random Forest dada as características dos dados
 5. **Treinamento do modelo**
 6. **Avaliação por métricas de classificação**:
@@ -125,26 +121,22 @@ após a experiência de compra.
 ## 🤖 Modelos Testados
 
 * Logistic Regression
-* Random Forest
+* Random Forest > Algoritmo escolhido
 
 Ambos os modelos foram avaliados com e sem:
 
 * balanceamento de classes
-* técnicas de oversampling
 
 ---
 
 ## 📈 Resultados (Baseline)
 
-### Random Forest (sem tratamento de desbalanceamento)
+### Random Forest (com tratamento de desbalanceamento) | Identificação de detratores
 
-| Classe    | Precision | Recall | F1-score |
-| --------- | --------- | ------ | -------- |
-| Promoter  | 0.50      | 0.06   | 0.11     |
-| Passive   | 0.12      | 0.01   | 0.02     |
-| Detractor | 0.84      | 0.99   | 0.91     |
-
-**Acurácia:** 0.83
+**Acurácia:** 0.85
+**Precisão:** 0.88
+**Recall:** 0.96
+**F1-Score:** 0.92
 
 Dado que o ojetivo é garantir assertividade no diagnóstico de detratores, usamos como base o Recall
 
