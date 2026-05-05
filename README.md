@@ -73,7 +73,7 @@ após a experiência de compra.
 │   │   ├── evaluate_model.py    # Avaliação do resultado obtido no moldeo
 │   │   └── model_factory.py   # Modelos disponíveis para teste, para facilitar a troca entre Regressão Logística e Random Forest
 │   
-│
+├── Notebook_EDA_grupo47.ipynb # Notebook para exploração dos dados
 ├── main.py               # Pipeline principal
 ├── requirements.txt
 └── README.md
